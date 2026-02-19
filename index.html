@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siber Güvenlik Şirketi Simülatörü</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+        }
+        .neon-green {
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+        }
+        .neon-purple {
+            color: #90f;
+            text-shadow: 0 0 5px #90f;
+        }
+        .data-counter {
+            font-size: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+        button {
+            background: linear-gradient(45deg, #0f0, #90f);
+            border: none;
+            color: #000;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #0f0, 0 0 30px #90f;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold text-center neon-green mb-6">Siber Güvenlik Şirketi Simülatörü</h1>
+        <div class="data-counter" id="dataCounter">0</div>
+        <div class="flex flex-col items-center">
+            <button id="hireEthicalHacker" class="neon-green">Beyaz Şapkalı Hacker İşe Al</button>
+            <button id="buyQuantumServer" class="neon-purple">Kuantum Sunucu Al</button>
+        </div>
+    </div>
+    <script>
+        let data = 0;
+        let dataPerSecond = 1;
+        const dataCounter = document.getElementById('dataCounter');
+        const hireEthicalHackerBtn = document.getElementById('hireEthicalHacker');
+        const buyQuantumServerBtn = document.getElementById('buyQuantumServer');
+        
+        function updateData() {
+            data += dataPerSecond;
+            dataCounter.textContent = data;
+        }
+        
+        setInterval(updateData, 1000);
+        
+        hireEthicalHackerBtn.addEventListener('click', () => {
+            dataPerSecond += 1;
+        });
+        
+        buyQuantumServerBtn.addEventListener('click', () => {
+            dataPerSecond += 5;
+        });
+    </script>
+</body>
+</html>
